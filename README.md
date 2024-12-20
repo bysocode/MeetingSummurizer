@@ -1,12 +1,15 @@
+Here’s the updated README with the requested sections removed:
+
+---
 
 # Whisper and RAG Project
 
-This repository automates the transcription, summarization, and retrieval of audio data using OpenAI Whisper for transcription and a Retrieval-Augmented Generation (RAG) pipeline for querying past summaries.
+This repository automates the transcription, summarization, and retrieval of audio data using OpenAI Whisper for transcription and a Retrieval-Augmented Generation (RAG) pipeline for querying past summaries. Summarization is powered by Ollama's custom LLM models.
 
 ## Features
 - **Audio Transcription**: Transcribes audio files into text using Whisper.
 - **Text Preprocessing**: Cleans and segments the transcriptions for structured summarization.
-- **Summarization**: Summarizes transcripts using a custom LLM (e.g., Ollama's models).
+- **Summarization**: Summarizes transcripts using Ollama's models.
 - **RAG Pipeline**: Enables querying of previously generated summaries to extract insights.
 
 ---
@@ -29,6 +32,14 @@ This repository automates the transcription, summarization, and retrieval of aud
      Download and add FFmpeg to your PATH: [FFmpeg Downloads](https://ffmpeg.org/download.html).
 
 3. **Git**: Ensure Git is installed for cloning the repository.
+
+4. **Ollama Server**: Required for running Ollama's LLM.
+   - Download and install Ollama from [Ollama Downloads](https://ollama.com/download).
+   - Once installed, start the server by running:
+     ```bash
+     ollama serve
+     ```
+   - Verify the server is running by navigating to [http://localhost:11434](http://localhost:11434) in your browser.
 
 ### Installation
 1. Clone the repository:
@@ -55,8 +66,10 @@ python app.py
 The application will:
 1. Transcribe the audio file.
 2. Clean and preprocess the transcript.
-3. Generate a summarized version of the transcript using an LLM.
+3. Generate a summarized version of the transcript using Ollama's LLM.
 4. Save the summaries in the `summaries_txt` folder.
+
+**Note**: Ensure the Ollama server is running before executing the script.
 
 ### 2. **RAG Pipeline**
 The project supports querying past summaries using the RAG pipeline:
@@ -78,7 +91,7 @@ To fine-tune models with your RAG documents:
 ## File Structure
 - `whisperapp.py`: Handles transcription using Whisper.
 - `preprocess_transcript.py`: Cleans and segments transcripts for further processing.
-- `ollamaInterface.py`: Interacts with the custom LLM for summarization.
+- `ollamaInterface.py`: Interacts with the custom LLM for summarization through the Ollama server.
 - `rag_pipeline.py`: Implements the RAG pipeline for document indexing and querying.
 - `app.py`: End-to-end script that ties all components together.
 - `summaries_txt/`: Directory for storing generated summaries.
@@ -110,3 +123,6 @@ Key takeaways:
 2. Discussions about future deliverables and milestone tracking.
 ```
 
+---
+
+This README provides a complete overview of the project and how to set it up and use it. Let me know if you need additional edits!
